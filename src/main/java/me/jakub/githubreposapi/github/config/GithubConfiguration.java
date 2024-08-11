@@ -1,14 +1,14 @@
 package me.jakub.githubreposapi.github.config;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.context.properties.bind.ConstructorBinding;
 
-@ConfigurationProperties("api.github")
+@ConfigurationProperties(prefix = "api.github")
 public record GithubConfiguration(
-        String apiUrl,
-        String apiKey,
+        String url,
+        String token,
         Integer maxPerPage) {
+    @ConstructorBinding
     public GithubConfiguration {
         if (maxPerPage == null) {
             maxPerPage = 100;

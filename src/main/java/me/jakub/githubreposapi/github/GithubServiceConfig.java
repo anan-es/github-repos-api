@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.support.RestClientAdapter;
-import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 
 @Configuration
@@ -18,7 +17,7 @@ public class GithubServiceConfig {
     @Bean
     RestClient githubRestClient() {
         return RestClient.builder()
-                .baseUrl(githubConfiguration.apiUrl())
+                .baseUrl(githubConfiguration.url())
                 .defaultHeader(HttpHeaders.ACCEPT, "application/vnd.github+json")
                 .build();
     }
