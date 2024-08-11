@@ -23,7 +23,7 @@ public class GithubService {
     @Autowired
     private GithubConfiguration githubConfiguration;
 
-    private Flux<Repository> getUserRepositories(String username) {
+    public Flux<Repository> getUserRepositories(String username) {
         return getUserRepositoriesPage(username).expand(listResponseEntity -> {
             String paginationLinks = listResponseEntity.getHeaders().getFirst("Link");
             if (paginationLinks == null) {
@@ -39,6 +39,7 @@ public class GithubService {
     }
 
     private Mono<ResponseEntity<List<Repository>>> getUserRepositoriesPage(String username) {
-        return Mono.just(githubApiRepository.getUserReposPage(username, 0, githubConfiguration.maxPerPage()));
+        ResponseEntity<List<Repository>> userReposPage = githubApiRepository.getUserReposPage(username, 0, githubConfiguration.maxPerPage());
+        return Mono.just(userReposPage);
     }
 }
