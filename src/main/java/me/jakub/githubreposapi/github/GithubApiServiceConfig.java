@@ -24,7 +24,7 @@ public class GithubApiServiceConfig {
     }
 
     @Bean
-    GithubApiRepository githubApiService() {
+    GithubApiRepository githubApiRepository() {
         RestClientAdapter adapter = RestClientAdapter.create(githubRestClient());
         HttpServiceProxyFactory factory = HttpServiceProxyFactory.builderFor(adapter).build();
         return factory.createClient(GithubApiRepository.class);
