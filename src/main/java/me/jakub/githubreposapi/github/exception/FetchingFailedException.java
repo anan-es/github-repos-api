@@ -3,7 +3,7 @@ package me.jakub.githubreposapi.github.exception;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.web.reactive.function.client.ClientResponse;
 
-public class FetchingFailedException extends Exception {
+public class FetchingFailedException extends RuntimeException {
     private final HttpStatusCode statusCode;
     private final String responseString;
 
