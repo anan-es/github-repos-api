@@ -1,7 +1,7 @@
 package me.jakub.githubreposapi.github.exception;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
-import org.springframework.web.reactive.function.client.ClientResponse;
 
 public class FetchingFailedException extends RuntimeException {
     private final HttpStatusCode statusCode;
@@ -10,5 +10,13 @@ public class FetchingFailedException extends RuntimeException {
     public FetchingFailedException(HttpStatusCode statusCode, String responseString) {
         this.statusCode = statusCode;
         this.responseString = responseString;
+    }
+
+    public HttpStatusCode getStatusCode() {
+        return statusCode;
+    }
+
+    public String getResponseString() {
+        return responseString;
     }
 }

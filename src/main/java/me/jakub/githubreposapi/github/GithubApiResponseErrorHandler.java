@@ -2,6 +2,7 @@ package me.jakub.githubreposapi.github;
 
 import me.jakub.githubreposapi.github.exception.FetchingFailedException;
 import me.jakub.githubreposapi.github.exception.NotFoundException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.ResponseErrorHandler;
@@ -17,7 +18,7 @@ public class GithubApiResponseErrorHandler implements ResponseErrorHandler {
 
     @Override
     public void handleError(ClientHttpResponse response) throws IOException {
-        if (response.getStatusCode().is4xxClientError()) {
+        if (response.getStatusCode() == HttpStatus.NOT_FOUND) {
             throw new NotFoundException(response.getStatusText());
         }
         throw new FetchingFailedException(response.getStatusCode(), response.getStatusText());
