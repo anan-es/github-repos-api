@@ -11,4 +11,16 @@ public class Owner {
     private Integer id;
     @JsonProperty
     private String url;
+
+    public String getLogin() {
+        return login;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getUrl() {
+        return url;
+    }
 }

@@ -7,4 +7,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Commit {
     @JsonProperty
     String sha;
+
+    public String getSha() {
+        return sha;
+    }
 }

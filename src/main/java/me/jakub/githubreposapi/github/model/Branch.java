@@ -9,4 +9,12 @@ public class Branch {
     String name;
     @JsonProperty
     Commit commit;
+
+    public String getName() {
+        return name;
+    }
+
+    public Commit getCommit() {
+        return commit;
+    }
 }
