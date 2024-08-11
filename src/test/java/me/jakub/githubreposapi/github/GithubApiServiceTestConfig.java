@@ -11,15 +11,15 @@ import org.springframework.web.client.support.RestClientAdapter;
 import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 
 @Configuration
-@Profile("!test")
-public class GithubApiServiceConfig {
+@Profile("test")
+public class GithubApiServiceTestConfig {
     @Autowired
     GithubConfiguration githubConfiguration;
 
     @Bean
     RestClient githubRestClient() {
         return RestClient.builder()
-                .baseUrl(githubConfiguration.url())
+                .baseUrl("http://localhost:8090")
                 .defaultHeader(HttpHeaders.ACCEPT, "application/vnd.github+json")
                 .defaultStatusHandler(new GithubApiResponseErrorHandler())
                 .build();

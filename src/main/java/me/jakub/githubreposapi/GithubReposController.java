@@ -1,8 +1,5 @@
 package me.jakub.githubreposapi;
 
-import me.jakub.githubreposapi.github.GithubApiService;
-import me.jakub.githubreposapi.github.model.Branch;
-import me.jakub.githubreposapi.github.model.Repository;
 import me.jakub.githubreposapi.model.GithubRepositoryDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

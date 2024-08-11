@@ -2,7 +2,6 @@ package me.jakub.githubreposapi;
 
 import me.jakub.githubreposapi.github.exception.FetchingFailedException;
 import me.jakub.githubreposapi.github.exception.NotFoundException;
-import org.apache.coyote.BadRequestException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
